@@ -6,6 +6,34 @@
     renderTitle($titulo, $subtitulo, $icon);
     include_once(TEMPLATE_PATH . "/messages.php");
   ?>
+
+<div class="card">
+  <form action="#" method="post" class="row row-cols-lg-auto g-3">
+      <?php if($user->is_admin): ?>
+        <div class="col-sm">
+          <select name="userId" id="userId" class="form-control m-2 " placeholder="selecione o usuário">
+          <?php foreach ($users as $user): ?>
+            <option value="<?= $user->id ?>" <?= ($user->id === $userIdSelected) ? 'selected' : '' ?> ><?= $user->name ?></option>
+          <?php endforeach ?>
+          </select>
+        </div>
+      <?php endif?>
+
+      <div class="col-sm">
+        <select name="period" id="period" class="form-control m-2" placeholder="selecione o período">
+        <?php foreach ($periods as $key => $value): ?>
+          <option value="<?= $key ?>" <?= ($key === $selectedPeriod) ? 'selected' : '' ?> ><?= $value ?></option>
+        <?php endforeach ?>
+        </select>
+      </div>
+      <div class="col-sm">
+        <button class="btn btn-md m-2 btn-primary">
+          <i class="icofont-search"></i>
+        </button>
+      </div>  
+  </form>
+</div>
+
   <div class="card">
     <div class="card-header ">
       <div class="row ">

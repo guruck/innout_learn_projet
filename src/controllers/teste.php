@@ -1,10 +1,12 @@
 <?php
 
 session_start();
-sessionIsValid();
+// sessionIsValid();
+sessionIsValid(true);
 
 
 loadModel('WorkingHours');
+
 
   $i1 = DateInterval::createFromDateString('9 hours');
   $i2 = DateInterval::createFromDateString('6 hours');
@@ -31,9 +33,9 @@ loadModel('WorkingHours');
   // $r1 = getLastDayOfMonth('2021-02-16');
   // $r1 = getLastDayOfMonth(new DateTime());
 
-  $r1 = WorkingHours::getMonthlyReport($user->id,date('Y-m-d'));
-
+  // $r1 = WorkingHours::getMonthlyReport($user->id,date('Y-m-d'));
+  
   
   // tela para teste
   if(!isset($r1)) $r1 = 'testando';
-  loadTemplateView('home', ['resultado'=>$r1]);
+  loadTemplateView('home', ['resultado'=>$r1, 'menus'=>$menus]);

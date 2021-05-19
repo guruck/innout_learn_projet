@@ -1,8 +1,6 @@
 <?php
 session_start();
-sessionIsValid();
-
-// requireValidSession(true);
+sessionIsValid(true);
 
 $activeUsersCount = User::getActiveUsersCount();
 $absentUsers = WorkingHours::getAbsentUsers();

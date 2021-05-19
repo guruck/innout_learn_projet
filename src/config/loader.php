@@ -26,7 +26,8 @@ function loadTemplateView($viewName, $params = array()){
 
   $user = $_SESSION['user'];
   $workingHours = WorkingHours::loadFromUserAndDate($user->id, date('Y-m-d'));
-
+  $menus = Menu::get();
+  
   $workedInterval = intervalToString($workingHours->getWorkedInterval());
   $exitTime = intervalToString($workingHours->getExitTime());
   $activeClock = intervalToString($workingHours->getActiveClock());

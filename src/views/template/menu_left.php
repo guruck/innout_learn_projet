@@ -1,43 +1,16 @@
 <aside class="sidebar">
   <nav class="menu mt-3">
     <ul class="nav-list">
-      <li class="nav-item">
-        <a href="day_records.php">
-          <i class="icofont-ui-check mr-2"></i>
-          Registrar Ponto
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="monthly_report.php">
-          <i class="icofont-ui-calendar mr-2"></i>
-          Relatorio Mensal
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="manager_report.php">
-          <i class="icofont-chart-histogram mr-2"></i>
-          Relatorio Gerencial
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="users.php">
-          <i class="icofont-users mr-2"></i>
-          Usuários
-        </a>
-      </li>
-      <div class="division my-3"></div>
-      <li class="nav-item">
-        <a href="teste.php">
-          <i class="icofont-test-tube-alt mr-2"></i>
-          Testes
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="data_generator.php">
-          <i class="icofont-skull-danger mr-2"></i>
-          Zerar Ponto do Dia
-        </a>
-      </li>
+    <?php foreach ($menus as $menu ): ?>
+      <?php if($user->is_admin >= $menu->elevate): ?>
+        <li class="nav-item">
+          <a href="<?= $menu->page ?>">
+            <i class="<?= $menu->ico ?> mr-2"></i>
+            <?= $menu->name ?>
+          </a>
+        </li>
+      <?php endif ?>
+    <?php endforeach ?>
     </ul>
   </nav>
   <div class="sidebar-widgets">

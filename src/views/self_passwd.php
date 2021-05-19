@@ -1,8 +1,8 @@
 <main class="content">
   <?php
     $icon = "icofont-user";
-    $titulo = "Cadastro de Usuário";
-    $subtitulo = "Crie e atualize o usuário";
+    $titulo = "Dados do Usuário";
+    $subtitulo = "Atualize sua senha";
     renderTitle($titulo, $subtitulo, $icon);
     include(TEMPLATE_PATH . "/messages.php");
   ?>
@@ -13,7 +13,7 @@
         <label for="name">Nome</label>
         <input type="text" id="name" name="name" placeholder="Informe o nome"
           class="form-control <?= $errors['name'] ? 'is-invalid' : '' ?>"
-          value="<?= $name ?>">
+          value="<?= $name ?>" disabled >
         <div class="invalid-feedback">
           <?= $errors['name'] ?>
         </div>
@@ -22,7 +22,7 @@
         <label for="email">E-mail</label>
         <input type="email" id="email" name="email" placeholder="Informe o email"
           class="form-control <?= $errors['email'] ? 'is-invalid' : '' ?>"
-          value="<?= $email ?>">
+          value="<?= $email ?>" disabled>
         <div class="invalid-feedback">
           <?= $errors['email'] ?>
         </div>
@@ -52,7 +52,7 @@
         <label for="start_date">Data de Admissão</label>
         <input type="date" id="start_date" name="start_date"
           class="form-control <?= $errors['start_date'] ? 'is-invalid' : '' ?>"
-          value="<?= $start_date ?>">
+          value="<?= $start_date ?>" disabled>
         <div class="invalid-feedback">
           <?= $errors['start_date'] ?>
         </div>
@@ -61,7 +61,7 @@
         <label for="end_date">Data de Desligamento</label>
         <input type="date" id="end_date" name="end_date"
           class="form-control <?= $errors['end_date'] ? 'is-invalid' : '' ?>"
-          value="<?= $end_date ?>">
+          value="<?= $end_date ?>" disabled>
         <div class="invalid-feedback">
           <?= $errors['end_date'] ?>
         </div>
@@ -72,7 +72,7 @@
         <label for="is_admin">Administrador?</label>
         <input type="checkbox" id="is_admin" name="is_admin"
           class="form-control <?= $errors['is_admin'] ? 'is-invalid' : '' ?>"
-          <?= $is_admin ? 'checked' : '' ?>>
+          <?= $is_admin ? 'checked' : '' ?> disabled>
         <div class="invalid-feedback">
           <?= $errors['is_admin'] ?>
         </div>

@@ -21,6 +21,20 @@
       var_dump($resultado);
     }
     
+
+
+
+
   ?>
+  <?php foreach ($menus as $menu ): ?>
+    <?php if($user->is_admin >= $menu->elevate): ?>
+      <li class="nav-item">
+        <a href="<?= $menu->page ?>">
+          <i class="<?= $menu->ico ?> mr-2"></i>
+          <?= $menu->name ?>
+        </a>
+      </li>
+    <?php endif ?>
+  <?php endforeach ?>
   </p>
 </main>

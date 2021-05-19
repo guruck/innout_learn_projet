@@ -28,6 +28,7 @@ require_once(EXCEPTION_PATH . '/ValidationException.php');
 loadModel('Model');
 loadModel('User');
 loadModel('WorkingHours');
+loadModel('Menu');
 
 //SESSÃO
 // session_start();
