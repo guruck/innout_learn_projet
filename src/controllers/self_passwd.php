@@ -6,6 +6,7 @@ $exception = null;
 $userData = [];
 
 if(count($_POST) === 0 && isset($_GET['update'])) {
+  if ($_GET['update']==='') $_GET['update'] = $_SESSION['user']->id;
   $user = User::getOne(['id' => $_GET['update']]);
   $userData = $user->getValues();
   $userData['password'] = null;
@@ -20,6 +21,10 @@ if(count($_POST) === 0 && isset($_GET['update'])) {
       $dbUser = new User($userData);
       $dbUser->update();
       addSuccessMsg('Senha alterada com sucesso!');
+      header('Location: day_records.php');
+      exit();
+    }else{
+      addErrorMsg('Ação não permitida!');
       header('Location: day_records.php');
       exit();
     }
